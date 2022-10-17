@@ -1,7 +1,10 @@
 /* eslint-disable prettier/prettier */
 
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany , ManyToOne} from 'typeorm';
+import { RutinaDiariaEntity } from '../rutina-diaria/rutina-diaria.entity';
+import { PlanEntrenamientoEntity } from '../plan-entrenamiento/plan-entrenamiento.entity';
 
+@Entity()
 export class DetallePlanEntity {
 
     @PrimaryGeneratedColumn('uuid')
@@ -9,18 +12,13 @@ export class DetallePlanEntity {
    
     @Column()
     numdia: number;
-    
-    @Column()
-    actividad: string;
 
     @Column()
-    descripcion: string;
+    marcaStreet: string;
 
-    @Column()
-    marcastreet: string;
+    @OneToMany(() => RutinaDiariaEntity, RutinaDiaria => RutinaDiaria.detallePlan)
+    rutinaDiaria: RutinaDiariaEntity[];
 
-    @Column()
-    tiempo: string;
-
-
+    @ManyToOne(() => PlanEntrenamientoEntity, planEntrenamiento => planEntrenamiento.detallePlan)
+    planEntrenamiento: PlanEntrenamientoEntity;
 }

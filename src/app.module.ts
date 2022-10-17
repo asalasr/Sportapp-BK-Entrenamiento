@@ -9,6 +9,12 @@ import { PlanEntrenamientoModule } from './plan-entrenamiento/plan-entrenamiento
 import { DetallePlanModule } from './detalle-plan/detalle-plan.module';
 import { AsignarPlanModule } from './asignar-plan/asignar-plan.module';
 import { AsignarDetallePlanModule } from './asignar-detalle-plan/asignar-detalle-plan.module';
+import { RutinaDiariaModule } from './rutina-diaria/rutina-diaria.module';
+import { PlanEntrenamientoEntity } from './plan-entrenamiento/plan-entrenamiento.entity';
+import { DetallePlanEntity } from './detalle-plan/detalle-plan.entity';
+import { AsignarPlanEntity } from './asignar-plan/asignar-plan.entity';
+import { AsignarDetallePlanEntity } from './asignar-detalle-plan/asignar-detalle-plan.entity';
+import { RutinaDiariaEntity } from './rutina-diaria/rutina-diaria.entity';
 
 @Module({
   imports: [
@@ -29,12 +35,20 @@ import { AsignarDetallePlanModule } from './asignar-detalle-plan/asignar-detalle
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
       synchronize: true, //falso en produccion
+      entities: [
+        PlanEntrenamientoEntity,
+        DetallePlanEntity,
+        AsignarPlanEntity,
+        AsignarDetallePlanEntity,
+        RutinaDiariaEntity,
+      ],
     }),
     CommonModule,
     PlanEntrenamientoModule,
     DetallePlanModule,
     AsignarPlanModule,
     AsignarDetallePlanModule,
+    RutinaDiariaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
