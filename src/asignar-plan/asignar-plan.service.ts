@@ -28,17 +28,12 @@ export class AsignarPlanService {
 
     ){}
 
-    async addDeportistaPlan(idDeportista: string, idPlanEntrenamiento: string, idDiaPlan :string): Promise<AsignarPlanEntity> {
+    async addDeportistaPlan(idDeportista: string, idPlanEntrenamiento: string): Promise<AsignarPlanEntity> {
        
-        const plan: PlanEntrenamientoEntity = await this.planEntrenamientoRepository.findOne({where: {id: idPlanEntrenamiento}});
+        const plan: PlanEntrenamientoEntity = await this.planEntrenamientoRepository.findOne({where: { id:idPlanEntrenamiento }, relations: ["detallePlan"] });
         if (!plan)
             throw new BusinessLogicException("El Id de plan de entrenamiento no se encuentra", BusinessError.NOT_FOUND);
-       
-        const detalle: DetallePlanEntity = await this.detallePlanRepository.findOne({where: {id: idDiaPlan}});
-        if (!detalle)
-            throw new BusinessLogicException("El Id de dia de entrenamiento no se encuentra", BusinessError.NOT_FOUND);
-
-
+      
         const SearchAsignarplan: AsignarPlanEntity = await this.asignarPlanRepository.findOne({ where: {idDeportista:idDeportista, estado:"ACTIVO" },relations: ["planEntrenamiento"] });
 
         if (SearchAsignarplan) {
@@ -65,33 +60,18 @@ export class AsignarPlanService {
             }
         }
 
-        //traer los dias del plan asignado s
-        /*console.log(JSON.stringify(plan.detallePlan));
-        console.log(JSON.stringify(plan.detallePlan,['detallePlan']));
-        console.log(JSON.stringify(plan.detallePlan,['id']));*/
+        //se asignan los dias del plan
+        for (const i in plan.detallePlan){
+            const asignarDetallePlan= new AsignarDetallePlanEntity;
+            asignarDetallePlan.idDeportista = idDeportista;
+            asignarDetallePlan.numdia=plan.detallePlan[i].numdia;
+            asignarDetallePlan.marcaStreet=plan.detallePlan[i].marcaStreet;
+            asignarDetallePlan.estado="Sin iniciar";
+            asignarDetallePlan.AsignarPlan=Search2Asignarplan;
+            asignarDetallePlan.idDetallePlan=plan.detallePlan[i].id
 
-        console.log(plan.caracteristicas);
-
-        const dia: DetallePlanEntity[]  = plan.detallePlan;
-
-        console.log("p:"+ dia);
-        
-        for (const d in dia ){
-            console.log("d:"+ dia[d].id);
+            await this.asignarDetallePlanRepository.save(asignarDetallePlan);
         }
-
-        
-
-        const asignarDetallePlan= new AsignarDetallePlanEntity;
-        asignarDetallePlan.idDeportista = idDeportista;
-        asignarDetallePlan.numdia=detalle.numdia;
-        asignarDetallePlan.marcaStreet=detalle.marcaStreet;
-        asignarDetallePlan.estado="Sin iniciar";
-        asignarDetallePlan.AsignarPlan=Search2Asignarplan;
-        asignarDetallePlan.idDetallePlan="a"
-
-        await this.asignarDetallePlanRepository.save(asignarDetallePlan);
-
         return  asignarPlan;
 
     } 
