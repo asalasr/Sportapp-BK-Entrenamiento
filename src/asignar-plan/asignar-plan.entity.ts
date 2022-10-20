@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn,ManyToOne} from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn,ManyToOne,OneToMany} from 'typeorm';
 import { PlanEntrenamientoEntity } from '../plan-entrenamiento/plan-entrenamiento.entity';
+import { AsignarDetallePlanEntity } from '../asignar-detalle-plan/asignar-detalle-plan.entity';
 
 @Entity()
 export class AsignarPlanEntity {
@@ -23,7 +24,7 @@ export class AsignarPlanEntity {
     @ManyToOne(() => PlanEntrenamientoEntity, planEntrenamiento => planEntrenamiento.detallePlan)
     planEntrenamiento: PlanEntrenamientoEntity;
 
-   /* @OneToMany(() => AsignarDetallePlanEntity, detallePlan => detallePlan.AsignarPlan)
-    DetallePlan: AsignarDetallePlanEntity[];*/
+    @OneToMany(() => AsignarDetallePlanEntity, asignarDetallePlan => asignarDetallePlan.AsignarPlan)
+    asignarDetallePlan: AsignarDetallePlanEntity[];
 
 }

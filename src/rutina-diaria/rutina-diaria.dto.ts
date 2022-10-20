@@ -1,25 +1,20 @@
 /* eslint-disable prettier/prettier */
 import {IsNotEmpty, IsString, IsOptional} from 'class-validator';
 
-export class AsignarPlanDto {
+export class RutinaDiariaDto {
 
     @IsString()
     @IsNotEmpty()
-    readonly idDeportista: string;
-
+    readonly actividad: string;
 
 
     @IsString()
     @IsOptional()
-    readonly fechaInicio: string;
+    readonly descripcion: string;
 
     @IsString()
     @IsOptional()
-    readonly fechaFin: string;
-
-    @IsString()
-    @IsNotEmpty()
-    readonly estado: string;
+    readonly tiempo: string;
 
 
 }
