@@ -16,9 +16,11 @@ export class DetallePlanEntity {
     @Column()
     marcaStreet: string;
 
-    @OneToMany(() => RutinaDiariaEntity, RutinaDiaria => RutinaDiaria.detallePlan)
-    rutinaDiaria: RutinaDiariaEntity[];
-
     @ManyToOne(() => PlanEntrenamientoEntity, planEntrenamiento => planEntrenamiento.detallePlan)
     planEntrenamiento: PlanEntrenamientoEntity;
+
+    @OneToMany(() => RutinaDiariaEntity, rutinaDiaria => rutinaDiaria.detallePlan)
+    rutinaDiaria: RutinaDiariaEntity[];
+
+    
 }

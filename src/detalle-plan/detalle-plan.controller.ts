@@ -16,7 +16,7 @@ export class DetallePlanController {
     }
 
     @Get(':detallePlan_id')
-    async findOne(@Param('planEntrenamiento_id') planEntrenamiento_id: string) {
-        return await this.detallePlanService.findOne(planEntrenamiento_id);
+    async findOne(@Param('detallePlan_id') detallePlan_id: string) {
+        return await this.detallePlanService.findOne(detallePlan_id);
     }
 }

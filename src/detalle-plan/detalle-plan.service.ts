@@ -15,14 +15,15 @@ export class DetallePlanService {
 
 
     async findAll(): Promise<DetallePlanEntity[]> {
-        return await this.detallePlanRepository.find({ relations: ["rutinaDiaria"] });
+        return await this.detallePlanRepository.find({ relations: ["rutinaDiaria","planEntrenamiento"] });
     }
 
     async findOne(id: string): Promise<DetallePlanEntity> {
-        const detallePlan: DetallePlanEntity = await this.detallePlanRepository.findOne({ where: { id }, relations: ["rutinaDiaria"] });
+        const detallePlan: DetallePlanEntity = await this.detallePlanRepository.findOne({ where: { id }, relations: ["rutinaDiaria","planEntrenamiento"] });
         if (!detallePlan) {
             throw new BusinessLogicException("No se encontro un detalle de plan con ese id", BusinessError.NOT_FOUND);
         }
         return detallePlan;
     }
+
 }

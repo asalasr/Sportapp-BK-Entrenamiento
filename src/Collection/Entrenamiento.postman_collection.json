@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "b3343b3c-f2ac-4241-a512-db91a5a1a7f9",
+		"name": "Entrenamiento",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15372972"
+	},
+	"item": [
+		{
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener planes  de entrenamiento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plan-entrenamiento",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plan-entrenamiento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un plan de entrenamiento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/plan-entrenamiento/003c47c7-6bb0-4a7d-bb6d-8cd0547d88fb",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"plan-entrenamiento",
+						"003c47c7-6bb0-4a7d-bb6d-8cd0547d88fb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerRutinasDias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/detalle-plan",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"detalle-plan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/detalle-plan/1c92a25a-0866-4545-b976-1afc146b87e0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"detalle-plan",
+						"1c92a25a-0866-4545-b976-1afc146b87e0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerRutinas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/rutina-diaria",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"rutina-diaria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerRutina",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/rutina-diaria/32aabdfb-a583-4d25-9bd6-95e48d872a2d",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"rutina-diaria",
+						"32aabdfb-a583-4d25-9bd6-95e48d872a2d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar Plan a deportista",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/asignar-plan/003c47c7-6bb0-4a7d-bb6d-8cd0547d88fb/diaplan/134b45f0-a60f-4cbb-abfd-6a828276edf2/deportista/44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"asignar-plan",
+						"003c47c7-6bb0-4a7d-bb6d-8cd0547d88fb",
+						"diaplan",
+						"134b45f0-a60f-4cbb-abfd-6a828276edf2",
+						"deportista",
+						"44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerPlanesDeportistas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/asignar-plan",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"asignar-plan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerAsignacionPlanDeportista",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/asignar-plan/44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"asignar-plan",
+						"44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDetallesPlanDeportista",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/asignar-detalle-plan",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"asignar-detalle-plan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDetallePlan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/asignar-detalle-plan/44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"asignar-detalle-plan",
+						"44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

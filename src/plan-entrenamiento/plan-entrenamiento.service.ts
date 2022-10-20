@@ -20,11 +20,11 @@ export class PlanEntrenamientoService {
    }
 
    async findOne(id: string): Promise<PlanEntrenamientoEntity> {
-    const planEntrenar: PlanEntrenamientoEntity = await this.planEntrenamientoRepository.findOne({ where: { id }, relations: ["detallePlan"] });
-    if (!planEntrenar) {
-        throw new BusinessLogicException("No se encontro un plan con ese id", BusinessError.NOT_FOUND);
+        const planEntrenar: PlanEntrenamientoEntity = await this.planEntrenamientoRepository.findOne({ where: { id }, relations: ["detallePlan"] });
+        if (!planEntrenar) {
+            throw new BusinessLogicException("No se encontro un plan con ese id", BusinessError.NOT_FOUND);
+        }
+        return planEntrenar;
     }
-    return planEntrenar;
-}
     
 }
