@@ -33,4 +33,14 @@ export class AsignarDetallePlanService {
         return asignarDetallePlan;
     }
 
+    async updateDetallePlan(id: string, asignarDetallePlan: AsignarDetallePlanEntity): Promise<AsignarDetallePlanEntity> {
+        const persistedDetallePlan: AsignarDetallePlanEntity = await this.asignarDetallePlanRepository.findOne({ where: { id } });
+        if (!persistedDetallePlan)
+            throw new BusinessLogicException("No se encontro el ID asociado a un dia de su plan", BusinessError.NOT_FOUND);
+
+        asignarDetallePlan.id = id;
+
+        return await this.asignarDetallePlanRepository.save(asignarDetallePlan);
+    }
+
 }
