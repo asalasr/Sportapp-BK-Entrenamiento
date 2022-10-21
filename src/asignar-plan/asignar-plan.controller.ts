@@ -20,9 +20,9 @@ export class AsignarPlanController {
         return await this.asignarPlanService.findOne(deportistaId);
     }
 
-    @Post(':planId/diaplan/:diaPlanId/deportista/:deportistaId')
-    async addDeportistaPlan(@Param('deportistaId') deportistaId: string, @Param('planId') planId: string, @Param('diaPlanId') diaPlanId: string){
-        return await this.asignarPlanService.addDeportistaPlan(deportistaId, planId,diaPlanId);
+    @Post(':planId/deportista/:deportistaId')
+    async addDeportistaPlan(@Param('deportistaId') deportistaId: string, @Param('planId') planId: string){
+        return await this.asignarPlanService.addDeportistaPlan(deportistaId, planId);
     }
 
 }

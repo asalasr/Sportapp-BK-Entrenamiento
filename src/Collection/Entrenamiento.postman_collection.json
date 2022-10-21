@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b3343b3c-f2ac-4241-a512-db91a5a1a7f9",
+		"_postman_id": "60d727ad-f838-4aae-b9db-17bda995d43a",
 		"name": "Entrenamiento",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "15372972"
@@ -140,17 +140,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/asignar-plan/003c47c7-6bb0-4a7d-bb6d-8cd0547d88fb/diaplan/134b45f0-a60f-4cbb-abfd-6a828276edf2/deportista/44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb",
+					"raw": "{{baseUrl}}/asignar-plan/{{planId}}/deportista/{{deportistaId}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"asignar-plan",
-						"003c47c7-6bb0-4a7d-bb6d-8cd0547d88fb",
-						"diaplan",
-						"134b45f0-a60f-4cbb-abfd-6a828276edf2",
+						"{{planId}}",
 						"deportista",
-						"44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb"
+						"{{deportistaId}}"
 					]
 				}
 			},
@@ -179,13 +177,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/asignar-plan/44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb",
+					"raw": "{{baseUrl}}/asignar-plan/{{deportistaId}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"asignar-plan",
-						"44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb"
+						"{{deportistaId}}"
 					]
 				}
 			},
@@ -214,13 +212,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/asignar-detalle-plan/44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb",
+					"raw": "{{baseUrl}}/asignar-detalle-plan/{{deportistaId}}",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"asignar-detalle-plan",
-						"44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb"
+						"{{deportistaId}}"
 					]
 				}
 			},
@@ -251,6 +249,16 @@
 		{
 			"key": "baseUrl",
 			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "deportistaId",
+			"value": "44ad47c7-6bb0-4a7d-bb6d-8cd0547d88fb",
+			"type": "string"
+		},
+		{
+			"key": "planId",
+			"value": "003c47c7-6bb0-4a7d-bb6d-8cd0547d88fb",
 			"type": "string"
 		}
 	]

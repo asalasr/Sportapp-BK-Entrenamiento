@@ -6,6 +6,7 @@ import {BusinessErrorsInterceptor} from '../shared/interceptors/business-errors.
 
 
 @Controller('rutina-diaria')
+@UseInterceptors(BusinessErrorsInterceptor)
 export class RutinaDiariaController {
 
     constructor(private readonly rutinaDiariaService: RutinaDiariaService) {}
